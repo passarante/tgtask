@@ -1,10 +1,12 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import React from "react";
 import { COLORS } from "./../../constants/index";
-import logoImg from "../../assets/images/logo.png";
 import { EyeSlash, Google, Lock1, UserTag } from "iconsax-react-native";
 import FormInput from "../../components/auth/FormInput";
 import { useNavigation } from "@react-navigation/native";
+import FormHeader from "../../components/auth/FormHeader";
+import TitleComponent from "../../components/common/TitleComponent";
+import PrimaryButton from "../../components/common/PrimaryButton";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -12,13 +14,11 @@ const LoginScreen = () => {
     // Container
     <View style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
-        <Image source={logoImg} />
-      </View>
+      <FormHeader />
       {/* Form */}
       <View>
         {/* Form Header */}
-        <Text style={styles.welcomeText}>Welcome Back!</Text>
+        <TitleComponent size={26} title="Welcome back!" />
         {/* Form Inputs */}
         <View>
           {/* Form Input Email */}
@@ -49,11 +49,7 @@ const LoginScreen = () => {
 
           <Text style={styles.forgotText}>Forgot Password?</Text>
           {/* Form Buttons  */}
-          <View>
-            <TouchableOpacity style={styles.loginBtn}>
-              <Text style={styles.loginBtnText}>Log In</Text>
-            </TouchableOpacity>
-          </View>
+          <PrimaryButton text="Log In" />
           <View style={styles.continueWithBlock}>
             <View style={styles.divider} />
             <Text style={styles.continueText}>Or continue with</Text>
@@ -85,18 +81,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 26,
     backgroundColor: COLORS.primary,
   },
-  header: {
-    marginTop: 30,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  welcomeText: {
-    marginTop: 40,
-    fontSize: 26,
-    fontFamily: "Inter_600SemiBold",
-    color: COLORS.white,
-    marginBottom: 22,
-  },
 
   leftIcon: {
     position: "absolute",
@@ -115,21 +99,11 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     fontSize: 16,
     fontFamily: "Inter_500Medium",
-    marginTop: -15,
+    marginTop: -5,
     alignSelf: "flex-end",
     marginBottom: 30,
   },
-  loginBtn: {
-    backgroundColor: COLORS.btnPrimary,
-    height: 60,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 30,
-  },
-  loginBtnText: {
-    fontSize: 18,
-    fontFamily: "Inter_600SemiBold",
-  },
+
   continueWithBlock: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -147,7 +121,7 @@ const styles = StyleSheet.create({
     fontFamily: "Inter_500Medium",
   },
   googleBtn: {
-    height: 60,
+    height: 50,
     borderColor: COLORS.white,
     borderWidth: 2,
     flexDirection: "row",

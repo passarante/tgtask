@@ -23,13 +23,13 @@ const FormInput = (props) => {
 
 const styles = StyleSheet.create({
   formInputContainer: {
-    marginBottom: 26,
+    marginBottom: 10,
   },
   label: {
     fontSize: 18,
     fontFamily: "Inter_400Regular",
     color: COLORS.text,
-    marginBottom: 16,
+    marginBottom: 10,
   },
   textInputContainer: {
     position: "relative",

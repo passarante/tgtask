@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import AuthStack from "./src/navigation/AuthStack";
 import AppStack from "./src/navigation/AppStack";
+import TabNavigator from "./src/navigation/TabNavigator";
 import {
   useFonts,
   Inter_100Thin,
@@ -31,11 +31,11 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
-  const user = false;
+  const user = true;
 
   return (
     <NavigationContainer>
-      {user ? <AppStack /> : <AuthStack />}
+      {user ? <TabNavigator /> : <AuthStack />}
     </NavigationContainer>
   );
 }
