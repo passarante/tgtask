@@ -7,4 +7,15 @@ export const COLORS = {
   white: "#ffffff",
   black: "#000000",
   tabBackground: "#263238",
+  lightblue: "#80d1f2",
+  searchIcon: "#6F8793",
+};
+
+export const fontFamilies = {
+  ligth: "Inter_300Light",
+  regular: "Inter_400Regular",
+  medium: "Inter_500Medium",
+  semibold: "Inter_600SemiBold",
+  bold: "Inter_700Bold",
+  black: "Inter_900Black",
 };
