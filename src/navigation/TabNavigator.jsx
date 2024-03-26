@@ -14,6 +14,7 @@ import {
   Messages1,
   Notification1,
 } from "iconsax-react-native";
+import AppStack from "./AppStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,8 +30,8 @@ const TabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="AppStack"
+        component={AppStack}
         options={{
           tabBarIcon: ({ color, focused }) => {
             return (

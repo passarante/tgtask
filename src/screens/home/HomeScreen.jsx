@@ -6,11 +6,14 @@ import {
   TouchableOpacity,
   TextInput,
   FlatList,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import { COLORS, fontFamilies } from "./../../constants/index";
 import { SearchNormal1, Setting4 } from "iconsax-react-native";
 import CompletedTaskCard from "../../components/home/CompletedTaskCard";
+import SectionHeader from "../../components/common/SectionHeader";
+import OngoingProjectCard from "../../components/home/OngoingProjectCard";
 
 const completedTasks = [
   {
@@ -29,7 +32,7 @@ const completedTasks = [
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <View>
@@ -67,23 +70,41 @@ const HomeScreen = () => {
 
       {/* Completed Tasks Section */}
       <View style={styles.completedTaskSection}>
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Completed Tasks</Text>
-          <TouchableOpacity>
-            <Text style={styles.sectionLink}>See all</Text>
-          </TouchableOpacity>
-        </View>
+        <SectionHeader title="Completed Tasks" link="See All" />
         <View style={styles.cards}>
           <FlatList
             horizontal
             data={completedTasks}
             renderItem={({ item }) => (
-              <CompletedTaskCard title={item.title} id={item.id} />
+              <CompletedTaskCard
+                title={item.title}
+                id={item.id}
+                mahmut={true}
+              />
             )}
           />
         </View>
       </View>
-    </View>
+      {/* Ongoing Projects */}
+      <View style={styles.ongoingProjectSection}>
+        <SectionHeader title="Ongoing Projects" link="See All" />
+        <OngoingProjectCard
+          title="Mobile App Wireframe"
+          dueDate="21 Haz"
+          percent={75}
+        />
+        <OngoingProjectCard
+          title="Real Estate App Design"
+          dueDate="12 Temmuz"
+          percent={40}
+        />
+        <OngoingProjectCard
+          title="Dashboard & App Design"
+          dueDate="24 Temmuz"
+          percent={12}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -154,23 +175,12 @@ const styles = StyleSheet.create({
   completedTaskSection: {
     marginTop: 30,
   },
-  sectionHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  sectionTitle: {
-    color: COLORS.white,
-    fontSize: 20,
-    fontFamily: fontFamilies.semibold,
-  },
-  sectionLink: {
-    color: COLORS.btnPrimary,
-    fontSize: 16,
-    fontFamily: fontFamilies.regular,
-  },
+
   cards: {
     marginTop: 10,
+  },
+  ongoingProjectSection: {
+    marginTop: 30,
   },
 });
 export default HomeScreen;
