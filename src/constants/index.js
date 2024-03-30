@@ -9,6 +9,7 @@ export const COLORS = {
   tabBackground: "#263238",
   lightblue: "#80d1f2",
   searchIcon: "#6F8793",
+  projectText: "#BCCFD8",
 };
 
 export const fontFamilies = {
